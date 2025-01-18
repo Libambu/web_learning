@@ -119,19 +119,254 @@ type
 
 **有序列表和无序列表可以互相嵌套**
 
- 
+##  表格
 
+单元格：同行等高，同列等宽
 
+表格 table
 
+行 tr
 
+列 td
 
+```html
+<table>
+    <tr>
+        <td>apple</td>
+        <td>banana</td>
+    </tr>
+    <tr>
+        <td>banana</td>
+        <td>apple</td>
+    </tr>
+</table>
 
+快捷键
+table>tr*3>td*3
+```
 
+表格属性
 
+border=“1” 设置边框
 
+width 宽度属性
 
+height 高度属性
 
+## 表格单元格合并
 
+水平合并 colspan
+
+垂直合并 rowspan
+
+```html
+<table>
+    <tr>
+        <td>单元格1</td>
+        <td>单元格2</td>
+        <td>单元格3</td>
+        <td>单元格4</td>
+        <td>单元格5</td>
+    </tr>
+    <tr>
+        <td>单元格6</td>
+        <td>单元格7</td>
+        <td>单元格8</td>
+        <td>单元格9</td>
+        <td>单元格10</td>
+    </tr>
+    <tr>
+        <td>单元格11</td>
+        <td>单元格12</td>
+        <td>单元格13</td>
+        <td>单元格14</td>
+        <td>单元格15</td>
+    </tr>
+    <tr>
+        <td>单元格16</td>
+        <td>单元格17</td>
+        <td>单元格18</td>
+        <td>单元格19</td>
+        <td>单元格20</td>
+    </tr>
+    <tr>
+        <td>单元格21</td>
+        <td>单元格22</td>
+        <td>单元格23</td>
+        <td>单元格24</td>
+        <td>单元格25</td>
+    </tr>
+</table>
+```
+
+## Form表单
+
+所有用户输入的地方都用表单来填写，如登录注册搜索框
+
+```html
+<form action="url" method="get|post" name="myform">
+```
+
+**属性说明**
+
+action 服务器地址
+
+name 表单名称
+
+**method中post和get的区别**
+
+- 数据提交方式，get把提交的数据url可以看到，post看不到
+- get一般用于提交少量数据，post用来提交大量数据
+
+**表单元素**
+
+一个完整的表单包含三个元素：表单标签，表单域(输入框)，表单按钮（提交）
+
+```html
+<form>
+	<input type="text">
+    <input type="submit">
+</form>
+```
+
+## 表单元素
+
+文本框
+
+```html
+<form>
+	账号：<input type="text">
+    密码：<input typr="text">
+</form>
+```
+
+密码框
+
+```html
+<form>
+        账号：<input type="text" ><br>
+        密码：<input type="password"><br>
+        <input type="submit" value="登录">
+</form>
+
+```
+
+更改value “登录提交等等”
+
+## 块元素和行内元素（内联元素）
+
+**常见的块级元素,可以自动换行，可以调整大小**
+
+```html
+div form h1~h6 hr p table ul
+```
+
+**常见的内联元素，不可自动换行，不可调节大小**
+
+```
+a b em span i strong
+```
+
+**行内块级元素，不可自动换行，可以调节大小**
+
+```
+button img input
+```
+
+## H5新增语义化标签
+
+```html
+<div></div>
+```
+
+容器标签，把一个内容模块放在一个容器中，用于区分
+
+```html
+<header></header> 头部
+<nav></nav>导航
+<section></section>定义文档中的节，比如章节，页眉，页脚
+<aside></aside>侧边栏
+<footer></footer>脚部
+<article></article>代表一个独立完整的相关内容块，比如一篇完整的论坛帖子，一篇博客文章，一个用户评论等等
+```
+
+# CSS 学习
+
+**css的目的就是让网页具有美观一致的页面**
+
+ 选择器通常是需要改变样式的HTML元素
+
+每条声明由一个属性和一个值组成
+
+```css
+写在<head></head>块中
+<style>
+h1{
+    color : blue;
+    font-size: 12px;
+}
+p{
+    
+}
+</style>
+```
+
+## css的引用方式
+
+**内联样式（行内样式）**
+
+缺乏整体性和规划性，不利于维护，维护成本高
+
+```html
+<p style="background:orange;font-size:24px">CSS</p>
+```
+
+**内部样式**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color: blue;
+        }
+        p{
+            color:blueviolet
+        }
+    </style>
+</head>
+<body>  
+    <h1>This is a heading</h1>
+    <hr>
+    <p>
+        首页跳转 链接如下
+        <br>
+        <a href="./test02.html">
+            跳转到test02.html
+        </a>
+    </p>
+</body>
+</html>
+```
+
+**外部标签**
+
+```html
+<link rel="stylesheet" type="text/css" href="xx.css">
+```
+
+需要单独创建一个css文件
+
+```css
+p{
+    color : red;
+    font-size : 100px;
+}
+```
 
 
 
