@@ -1,0 +1,16 @@
+*{
+    margin: 10;
+    padding: 10;
+    color :blue;
+    font-size: 30px;
+}
+h1{
+    color: red;
+    font-size: 50px;
+}
+span{
+    color : green;
+}
+.link{
+    color: purple;
+}

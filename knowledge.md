@@ -368,6 +368,110 @@ p{
 }
 ```
 
+## 选择器一
+
+**全局选择器**
+
+可以与任何元素匹配，优先级最低，一般做样式初始化
+
+```css
+*{
+	margin:0;
+    padding:0;
+}
+```
+
+**元素选择器**
+
+学前端后学java标红java
+
+```html
+<p>学前端后学<span>java</span></p>
+```
+
+```css
+span{
+	color : red;
+}
+```
+
+类选择器
+
+```html
+<a href="./link.html" class="content size">This is a link.</a>
+```
+
+class一个类可以放很多属性
+
+```html
+.content{
+
+}
+.size{
+
+}
+```
+
+## 选择器二
+
+**id选择器**
+
+```css
+#mytext{
+	color ： "red"；
+}
+```
+
+```html
+<p id = "mytext"></p>
+```
+
+id和一个标签是一一对应的
+
+**合并选择器**
+
+```html
+p,h3
+{
+	color ： "red";
+}
+<p></p>
+<h3></h3>
+类和标签都可以，中间逗号隔开就行
+```
+
+**优先级排行**
+
+  行内样式>ID选择器＞类选择器＞元素选择器
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
