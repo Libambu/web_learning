@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 2500px;
+            background-color: bisque;
+        }
+        img{
+            width: 300px;
+            height: auto;
+            border: 1px solid #ccc;
+        }
+        .fix{
+            float: left;
+        }
+        ul li{
+            float: left;
+            border: 100px solid white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="./111.jpg" alt="111">
+        <img src="./111.jpg" alt="111">
+    </div>
+    <p>这样写两个图片会有间隙，可以用float:left;来解决</p>
+    <div >
+        <img class="fix" src="./111.jpg" alt="111">
+        <img class="fix" src="./111.jpg" alt="111">       
+    </div>
+    <div>
+        <p style="clear: both;">脱离文档流实现水平摆放</p>
+    </div>
+    <div>
+        <ul>
+            <li>
+                <a href="#">导航一</a>
+            </li>
+            <li>导航二</li>
+            <li>导航三</li>
+            <li>导航四</li>
+        </ul>
+    </div>
+    <div>
+        当空间不足时元素会选择横向摆放
+    </div>
+</body>
+</html>
