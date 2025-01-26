@@ -1117,6 +1117,675 @@ animation:name duration timing delay iteration-count direction
 }
 ```
 
+# JavaScript
+
+## 语句、标识符
+
+```html
+<script>
+	var num = 10;
+</script>
+```
+
+规范和C++一样
+
+**但是中文可以当标识符，但是不推荐**
+
+## 变量
+
+var 声明变量
+
+```html
+<script>
+    console.log(num);
+	var num = 10;
+</script>
+```
+
+```
+var num;
+console.log(num);
+num = 10;
+```
+
+**结果会显示undefined**
+
+**变量提升**
+
+## JS引用到文件
+
+- 嵌入到HTML中
+- 引用本地独立JS文件
+- 引用网络来源文件
+
+**嵌入到HTML中**
+
+```html
+<body>
+    <script>
+    	var num = 10;
+        console.log(num);
+    </script>
+</body>
+```
+
+**引入本地独立JS文件**
+
+```html
+<body>
+    <script type="text/javascript" src="#111"></script>
+</body>
+```
+
+**引用网络来源文件**
+
+```html
+<body>
+    <script src=""></script>
+</body>
+```
+
+Network
+
+## JS注释和常见输出方式
+
+JS和cpp一样
+
+<!--HTML注释-->
+
+```js
+//在浏览器中弹出一个对话框，然后要把输出的内容展现出来，alert都是把要输出的内容首先转换为字符串后输出的
+//弹出框，点击确定后消失
+alert("要输出的内容")；
+//显示到页面上
+document.write("要输出的内容");
+//在控制台输出
+console/log("要输出的内容")
+```
+
+## 数据类型
+
+**数值、字符串、布尔值、NULL、对象、undedined**
+
+```js
+var age = 20;
+var name = "段誉龙"
+var learn = true
+```
+
+对象  object，其实就是结构体
+
+```js
+var user = {
+    age : 19,
+    name : "111"
+}
+```
+
+## **typeof运算符**
+
+检测数据类型
+
+```js
+var age = 20;
+console.log(typeof age);
+```
+
+一般用于检测基本数据类型
+
+## 算数运算符
+
+和cpp一样
+
+## 赋值运算符
+
+和cpp一样
+
+## 比较运算符
+
+和cpp不同点是js有严格相等和严格不相等
+
+```js
+var num1 = 10;
+var num2 = "10";
+num3 == num4 true
+num3 === num4 false
+num3 ！= num4 flase
+num3 !== num4 true
+```
+
+=== 数值本身是否相等，类型本身是否相等
+
+！=不相等
+
+！==严格不相等
+
+## 布尔运算符
+
+和cpp区别
+
+1、undefined null false 0 NaN 空字符串 
+
+取反后为true，其余非布尔值都为false
+
+2、数字取反后是布尔值，cpp好像还是数字
+
+## 条件语句
+
+```js
+if(布尔值){
+    语句;
+}
+```
+
+和cpp一模一样
+
+## Switch
+
+```js
+switch(fruit)
+{
+    case "bnana":
+        break;
+    case "bnana":
+        break;
+    default:
+        111;
+}
+```
+
+## 三目运算符
+
+```js
+(条件)?表达式1 : 表达式2;
+```
+
+## for循环
+
+和cpp一样
+
+## while循环
+
+和cpp一样
+
+## break和continue
+
+和cpp一样
+
+## 字符串
+
+和cpp一样
+
+s.length
+
+## 字符串方法
+
+**1、charAt**
+
+```js
+var s = "11";
+s.charAt(1);
+```
+
+**2、concat**
+
+连接字符串
+
+```js
+var s1 = "111";
+var s2 = "222";
+var ans = s1.concat(s2);
+111222
+```
+
+**字符串直接+也可以**
+
+语法和java一样
+
+**3、substring()**
+
+提取子串
+
+```js
+var ans = s1.substring(0,5);
+0是开始位置
+5是结束位置
+```
+
+**4、substr()**
+
+提取子串
+
+```js
+var ans = s1.substring(0,5);
+0是开始位置
+5提取的长度
+```
+
+**5、indexOf()**
+
+其实就是find
+
+```js
+var ans = "hello".indexOf('o');
+```
+
+**6、trim()**
+
+去掉字符串两边的空格，制表符，换行符，回车符，不改变原字符串
+
+```js
+var ans = " hello ".trim();
+```
+
+**7、split()**
+
+```
+"duan|yu|long".split('|')
+["duan","yu","long"]
+"duan|yu|long".split('')
+分割出每一个字符
+```
+
+## 数组
+
+感觉和py中的列表一样
+
+```js
+var arr = [111,[1,2,3],true]
+```
+
+```js
+var names = [];
+names[0] = 1;
+```
+
+**length属性**
+
+```js
+var ans = arr.length
+```
+
+**数组遍历cpp和py模式都可以**
+
+py:
+
+```js
+var a = [1,2,3];
+for(var i in a){
+    
+}
+```
+
+**Array.isArray**
+
+**判定是否是数组**
+
+true or false
+
+```js
+var arr = [1,2,3];
+Array.isArray(arr);
+```
+
+**push pop**
+
+和栈一样
+
+但是有返回值了，push返回新数组的长度，pop返回最后一个元素
+
+```js
+arr.push(1);
+arr.pop();
+```
+
+**shift() / unshift()**
+
+**shift用于删除第一个元素并返回第一个元素**
+
+**unshift第一个位置添加元素，并返回长度**
+
+**join()**
+
+ 指定参数作为分隔符，将所有数组成员返回一个字符串，如果不提供参数，用逗号隔开
+
+```js
+var a = [1,2,3,4];
+
+a.join(' ')//"1 2 3 4"
+a.join('|')//"1|2|3|4"
+a.join()//"1,2,3,4"
+```
+
+**concat()**
+
+和String一模一样
+
+**revers()**
+
+```js
+var a = [1,2,3];
+a.reverse();
+```
+
+```js
+var str = "hello";
+str.split("").reverse().join("");
+```
+
+**indexOf()**
+
+和cpp一样
+
+```js
+arr.indexOf(1);
+```
+
+## 函数
+
+```js
+function print(s){
+	console.log(s);
+}
+```
+
+函数和变量一样都会被提到代码头部
+
+可以return 也 可以不return
+
+对象
+
+```js
+var user = {
+	name:'dyl';
+    age:13;
+    getname.function(name){
+        console.log(name);
+    }
+}
+```
+
+## Math对象 
+
+```js
+Math.abs(-1)
+Math.max();
+Math.min();
+Math.floor(3.2) 3向下取整
+Math.ceil(3.2) 4 向上取整
+Math.random() 返回[0,1)的随机数
+```
+
+## Date对象
+
+时间零点：1970 1.1 00:00:00
+
+```
+Date.now()
+返回距离时间零点的毫秒数
+```
+
+相当于Unix的时间戳*1e3
+
+## DOM概述
+
+dom是js操作页面的接口
+
+DOM树：文档的树形结构
+
+![image-20250126091955566](C:\Users\libam\AppData\Roaming\Typora\typora-user-images\image-20250126091955566.png)
+
+节点的类型
+
+| Document     | 整个文档树的顶层节点     |
+| ------------ | ------------------------ |
+| DocumentType | doctype标签              |
+| Element      | 网页的各种HTML标签       |
+| Attribute    | 网页元素的属性           |
+| Text         | 标签之间和标签包含的文本 |
+| Comment      | 注释                     |
+| Document     | 文档的片段               |
+
+## document对象方法获取元素
+
+**document.getElementsByTagName()**
+
+搜索HTML标签名，返回符合条件的元素，他的返回值是类似数组对象的HTML Collection实例。如果没有任何匹配到的元素，就返回一个空集
+
+```js
+var paras = document.getElementsByTagname('p');
+var p = document.getElementsByTagname('p')[0];读取具体的内容
+```
+
+如果传入*就是所有HTML元素
+
+**document.getElementsByClassName()**
+
+包含所有的class名字符指定条件的元素，元素的变化实时反映在返回结果中
+
+```
+var elements = document.getElementByClass('name');
+var elements = document.getElementByClass('name  age');
+```
+
+可以参入多个参数，中间空格隔开
+
+**document.getElementsByName()**
+
+用于选择具有name属性的HTML元素(<form> <img> <radio>) 返回类似数组的对象
+
+```
+<form name="dyl"></form>
+var forms = document.getElemnetsByName('dyl')
+```
+
+**document.getElementsByID()**
+
+匹配指向id的元素节点
+
+```js
+var elements = document.getElementById('name');
+```
+
+大小写敏感
+
+**document.querySelector()**
+
+接受一个CSS的选择器（类和id），返回匹配该类的第一个节点
+
+```js
+var el1 = document.querySelector('.myclass')或者#id
+```
+
+**document.querySelectorAll()**
+
+和上面一样，区别是匹配给定选择器的所有对象
+
+## document对象方法创建元素
+
+**document.creatElement()用于生成元素节点，并返回该节点**
+
+```js
+var newDiv = documnet.creatElement('div');
+```
+
+**documnet.creatTextNode()生成文本实例，并返回该节点**
+
+```js
+var newDiv = document.creatElement('div');
+var newcontent = document.creatTextNode('hello');
+newDiv.appendchild(newContent);
+```
+
+**document.creatAttribute()**
+
+ 创建新的属性
+
+```js
+var newDiv = documnet.creatElement('div');
+var id = document.creatAttribute('id')
+id.value = "root";
+newDiv.appendChild(content);
+newDiv.setAttritubeNode(id);
+```
+
+##  Element对象属性
+
+```html
+<div class = "box" id = "root">hello</div>
+```
+
+```js
+var  root = documnet.getElementById('root');
+root.id = "roots"
+console.log(root.id)//可读可写
+root.ClassName = "box1 box2"
+//与id一样
+```
+
+ELement.ClassList
+
+- add() 增加一个class
+- remove（）删除一个class
+- contains（）检查当前元素是否包含某个class
+- toggle（）将某个class移入或者移出当前某个元素
+
+```js
+var  root = documnet.getElementById('root');
+root.ClassList.add("mybox");
+root.ClassList.remove("mybox");
+root.ClassList.contains("mybox")
+存在则返回true，否则返回false
+```
+
+## **innerHTML**
+
+```js
+console.log(root.innerHTML)//打印文本内容
+root.innerHTML = "大家好" //设置文本内容
+```
+
+## **root.innerTest**
+
+和**innerHTML**作用一样，写法一样
+
+区别：**innerHTML**能够识别标签，而innerHTML会理解为字符串
+
+```js
+var str = "<a href="#"></a>"
+root.innerHTML = str;会跳转
+root.innerTEXE就是显示字符串了
+```
+
+## Element获取元素位置
+
+![image-20250126104312039](C:\Users\libam\AppData\Roaming\Typora\typora-user-images\image-20250126104312039.png)
+
+```
+document.documentElement.clientHeight//获取网页总高度
+document.body.clientHeight//获取当前页面的高度
+```
+
+## css操作
+
+**HTML元素的style属性**
+
+```html
+<div class = "box" id = "box"></div>
+```
+
+```js
+<script>
+	var box = document.getElementById("box");     box.setAttribute("style"         , "width:200px;background:'red';"                        )
+</script>
+```
+
+**元素节点的style属性**
+
+```js
+<script>
+	var box = document.getElementById("box"); 
+	box.style.width = "300px";
+	box.style.height = "300px";
+</script>
+```
+
+**CssText属性**
+
+```js
+box.style.cssText = "width:200px;background:'red';";
+```
+
+## 事件处理程序
+
+为页面添加事件
+
+1. HTML事件处理
+2. DOM0级事件处理
+3. DOM2级事件处理
+
+**HTML事件处理**
+
+```html
+<body>
+    <div>
+        <p >点击按钮触发事件</p>
+        <button id="myBtn" onclick="myFunction()">点击我</button>
+    </div>
+
+    <div id = "myDiv">
+        <p>test文本</p>
+    </div>
+
+    <script>
+        function myFunction() {
+            var testdiv = document.getElementById("myDiv");
+            testdiv.innerHTML = "你点击了按钮";
+        }
+    </script>
+</body>
+```
+
+**DOM0级事件处理**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+    <script>
+        var btm = document.getElementById("myButton");
+      多个函数会被覆盖
+        btm.onclick = function(){
+            alert("Button clicked!");
+        }
+    </script>
+</body>
+</html>
+```
+
+DOM2级事件处理
+
+```
+<body>
+    <button id = "myButton">Click me</button>
+
+    <script>
+        var myButton = document.getElementById("myButton");
+ 不会被覆盖      myButton.addEventListener("click", function(){
+            alert("Button clicked1!");
+        });
+        myButton.addEventListener("click", function(){
+            alert("Button clicked2!");
+        });
+    </script>
+</body>
+```
 
 
 
@@ -1143,11 +1812,6 @@ animation:name duration timing delay iteration-count direction
 
 
 
-
-
-
-
- 
 
 
 
