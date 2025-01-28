@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        账号：<input type="text" id="input">
+        <br>
+        密码：<input type="text" id="put">
+        <br>
+        密码：<input type="text" id="1put">
+        <br>
+        <input type="submit" >
+    </form>
+    <script>
+        // 键盘按下时触发
+        document.getElementById("input").addEventListener("keydown", function(event){
+            console.log(event.target.value);
+        });
+        // 键盘抬起时触发
+        document.getElementById("put").addEventListener("keyup", function(event){
+            console.log(event.keyCode);
+        });
+        // 键盘按下触发，排除无效按键ctrl、shift、alt、tab、enter、esc、backspace、delete、home、end、pageup、pagedown、left、up、right、down
+        document.getElementById("1put").addEventListener("keypress", function(event){
+            console.log(event.target.value);
+        });
+    </script>
+</body>
+</html>

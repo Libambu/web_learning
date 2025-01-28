@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        setTimeout(fun, 2000);
+
+        function fun(){
+            document.write("Hello, world!");
+        }
+        //这里的this和java的this一样
+        var user = {
+            name: "John",
+            age: 30,
+            getname:function getname(){
+                var that = this;
+                //再把this改成that就行了
+                document.write(this.name);
+            }
+        }
+        user.getname();
+        // 但是在setTimeout中，this指向的是全局变量
+        //取消定时器
+        var timerId = setTimeout(fun, 2000);
+        clearTimeout(timerId);
+    </script>
+</body>
+</html>

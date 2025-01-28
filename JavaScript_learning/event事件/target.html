@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contain{
+            width: 200px;
+            height: 200px;
+            background-color: #999;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button id="myBtn">click me</button>
+    <a href="https://www.baidu.com" id = "myLink">baidu</a>
+    <div class="contain" id="contain">
+        <div class="box" id="box">
+        </div>
+    </div>
+    <script>
+        var myBtn = document.getElementById("myBtn");
+        myBtn.addEventListener("click", function(event){
+            event.target.innerHTML = "You clicked on " + event.target.tagName; //输出点击的元素的标签名
+        });
+        //event.target返回触发事件的元素
+        myBtn.addEventListener("click", function(event){
+            alert(event.type); //.type返回3事件类型      
+        });    
+        // Event.preventDefault()阻止默认跳转行为
+        var myLink = document.getElementById("myLink");
+        myLink.addEventListener("click", function(event){
+            event.preventDefault(); //阻止默认跳转行为
+            alert("You clicked on " + event.target.href); //输出点击的元素的href属性
+            });
+        //Event.stopPropagation() 阻止事件冒泡
+        var con = document.getElementById("contain");
+        var box = document.getElementById("box");
+        con.addEventListener("click", function(event){
+            console.log("container"); //输出点击的元素
+        });
+        box.addEventListener("click", function(event){
+            console.log("box"); //输出点击的元素
+            event.stopPropagation(); //阻止事件冒泡
+            //点击内部的box会触发container的事件，如果不想触发，可以用stopPropagation()方法阻止事件冒泡
+        });
+
+    </script>
+
+</body>
+</html>

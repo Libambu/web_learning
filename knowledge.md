@@ -1787,25 +1787,141 @@ DOM2级事件处理
 </body>
 ```
 
+## 事件类型之鼠标事件
+
+![image-20250126151452899](C:\Users\libam\AppData\Roaming\Typora\typora-user-images\image-20250126151452899.png)
+
+## event事件对象
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contain{
+            width: 200px;
+            height: 200px;
+            background-color: #999;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button id="myBtn">click me</button>
+    <a href="https://www.baidu.com" id = "myLink">baidu</a>
+    <div class="contain" id="contain">
+        <div class="box" id="box">
+        </div>
+    </div>
+    <script>
+        var myBtn = document.getElementById("myBtn");
+        myBtn.addEventListener("click", function(event){
+            event.target.innerHTML = "You clicked on " + event.target.tagName; //输出点击的元素的标签名
+        });
+        //event.target返回触发事件的元素
+        myBtn.addEventListener("click", function(event){
+            alert(event.type); //.type返回3事件类型      
+        });    
+        // Event.preventDefault()阻止默认跳转行为
+        var myLink = document.getElementById("myLink");
+        myLink.addEventListener("click", function(event){
+            event.preventDefault(); //阻止默认跳转行为
+            alert("You clicked on " + event.target.href); //输出点击的元素的href属性
+            });
+        //Event.stopPropagation() 阻止事件冒泡
+        var con = document.getElementById("contain");
+        var box = document.getElementById("box");
+        con.addEventListener("click", function(event){
+            console.log("container"); //输出点击的元素
+        });
+        box.addEventListener("click", function(event){
+            console.log("box"); //输出点击的元素
+            event.stopPropagation(); //阻止事件冒泡
+            //点击内部的box会触发container的事件，如果不想触发，可以用stopPropagation()方法阻止事件冒泡
+        });
+## 表单对象
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    账号：<input type="text" id="input1">
+    密码：<input type="text" id="input2">
+    <div id = "test">
+        <p>用于测试</p>
+    </div>
+
+    <form id="form">
+        <input type="text" id = "input3">
+        <button id = "btn">重置</button>
+    </form>
+    测试submit事件
+    <form id="form2" onsubmit="submitHandle"> 
+        <input type="text" id = "input4" name="username">
+        <input type="password" id = "input5" name="password">
+        <input type="submit" value="提交">
+    </form>    
+
+    <script>
+        var test = document.getElementById("test");
+        //表单事件是在使用表单元素及输入框元素可以监听的一系列事件
+        // input事件,当用户输入文本时触发
+        var input1 = document.getElementById("input1");
+        input1.addEventListener("input", function(event) {
+            console.log("触发input事件");
+            console.log(event.target.value);
+        });
 
 
+        //select事件,当用户选择文本框中的文本时触发
+        input1.addEventListener("select", function(){
+            console.log("触发select事件");
+        });
 
 
+        //Change事件，当用户改变文本框中的文本时触发（回车或失去焦点）
+        var input2 = document.getElementById("input2");
+        input2.addEventListener("change", function(){
+            console.log("触发change事件");
+            if(input2.value == "123456"){
+                test.innerHTML = event.target.value;
+            }
+            else{
+                test.innerHTML = "密码错误";
+            }
+        });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //reset submit是发生在表单对象form上，而不是发生在表单元素上。
+        //reset事件，用于清空表单
+        var form = document.getElementById("form");
+        var btn = document.getElementById("btn");
+        btn.addEventListener("click", function(){
+            form.reset();
+        })
+        //submit事件触发，当用户提交表单时触发
+        function submitHandle(event){
+            event.preventDefault();
+            var username = document.getElementById("input4").value;
+            var password = document.getElementById("input5").value;
+            console.log("用户名：" + username + " 密码：" + password);
+        }
+        document.getElementById("form2").addEventListener("submit", submitHandle);
+    </script>
+</body>
+</html>
+```
 
 
 

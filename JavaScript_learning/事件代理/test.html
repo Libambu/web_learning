@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>该例子说明点击子元素同样会触发父元素的事件监听器</p>
+    <p>利用这一条可以把子元素系统的交给父元素去处理</p>
+    <ul id = "myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <p>p标签</p>
+    </ul>
+
+    <script>
+        var myList = document.getElementById("myList");
+        myList.addEventListener("click", function(event){
+            if(event.target.tagName === "LI"){
+                alert("You clicked on LI");
+                //可以获得文本信息
+                console.log(event.target.innerHTML);
+            }
+            else if(event.target.tagName === "P"){
+                alert("You clicked on P");
+                console.log(event.target.innerHTML);
+            }
+        });
+    </script>
+</body>
+</html>
